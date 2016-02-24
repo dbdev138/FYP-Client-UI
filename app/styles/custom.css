@@ -1,0 +1,21 @@
+.drop_100{
+    margin-top: 100px;
+}
+
+.drop_20{
+    margin-top: 20px;
+}
+
+.lift_100{
+    margin-bottom: 100px;
+}
+
+img.center{
+    text-align: center;
+}
+
+.count_text{
+    text-align: center;
+    font-size: 500%;
+    font-weight: bold;
+}
