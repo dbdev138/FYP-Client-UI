@@ -62,38 +62,56 @@
 
     <div class="row">
         <div class="col-md-12 container">
+            <div class="col-md-6 container">
             <table class="table table-condensed">
               <tr>
                   <td>Get All Businesseses</td>
                   <td> </td>
                   <td><button id="allSearch" class="btn btn-info" ng-click="getBusinessList()">Call Web Service</button></td>
               </tr>
-    <!--
-              <tr>
-                  <td>Get All Businesses by ID</td>
-                  <td><select name="idSearch" ng-model="idParam" class="form-control" placeholder="Business ID" data-ng-repeat="id in bbbds_business_id_list">
-                         <<option value="{{ id }}"></option>
-                      </select>
-                  </td>
-                  <td><button class="btn btn-info" ng-click="getBusinessById(idParam)">Call Web Service</button></td>
-              </tr>
-    -->
+
               <tr>
                   <td>Get All Businesses by Town Name </td>
-                  <td><input id="townSearch" ng-model="townParam" class="form-control" placeholder="Town Name"/></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessListByTown(townParam)">Call Web Service</button></td>
+                  <td>
+                      <form name="form1" class="form-group">
+                        <select name="repeatSelect" id="repeatSelect" ng-model="townOptions.townParam" class="form-control">
+                          <option class="form-control" placeholder="Business Town" ng-repeat="option in townOptions.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                      </form>
+                  </td>
+                  <td><button class="btn btn-info" ng-click="getBusinessListByTown(townOptions.townParam)">Call Web Service</button></td>
               </tr>
+              
+              </table>
+        </div>
+             
+             <div class="col-md-6 container">
+            <table class="table table-condensed">
+              
               <tr>
                   <td>Get All Businesses by County</td>
-                  <td><input id="countySearch" ng-model="countyParam" class="form-control" placeholder="Business County"/></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessByCounty(countyParam)">Call Web Service</button></td>
+                  <td>
+                      <form name="form2" class="form-group">
+                        <select name="repeatSelect" id="repeatSelect" ng-model="countyOptions.countyParam" class="form-control">
+                          <option class="form-control" placeholder="Business County" ng-repeat="option in countyOptions.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                      </form>
+                  </td>
+                  <td><button class="btn btn-info" ng-click="getBusinessByCounty(countyOptions.countyParam)">Call Web Service</button></td>
               </tr>
               <tr>
                   <td>Get All Businesses by Region</td>
-                  <td><input id="regionSearch" ng-model="regionParam" class="form-control" placeholder="Business Region"/></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessByRegion(regionParam)">Call Web Service</button></td>
+                  <td>
+                      <form name="form3" class="form-group">
+                        <select name="repeatSelect" id="repeatSelect" ng-model="regionOptions.regionParam" class="form-control">
+                          <option class="form-control" placeholder="Business Region" ng-repeat="option in regionOptions.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                      </form>
+                  </td>
+                  <td><button class="btn btn-info" ng-click="getBusinessByRegion(regionOptions.regionParam)">Call Web Service</button></td>
               </tr>
             </table>
+        </div>
         </div>
     </div>
            

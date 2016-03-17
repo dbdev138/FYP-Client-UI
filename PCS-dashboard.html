@@ -72,21 +72,29 @@
    <div class="row drop_100">
         <div class="col-md-6 container">
             <table class="table table-condensed">
-             <tr>
+              <tr>
                   <td><b>Retrieve all business records : </b></td>
-                  <td></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByAll()">Call Web Service</button></td>
+                  <td> </td>
+                  <td><button id="allSearch" class="btn btn-info" ng-click="getBusinessesByAll()">Call Web Service</button></td>
               </tr>
+
               <tr>
                   <td><b>Retrieve all business records for a given town: </b></td>
-                  <td><input ng-model="townParam" class="form-control" placeholder="Town"/></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByTown(townParam)">Call Web Service</button></td>
+                  <td>
+                      <form name="form1" class="form-group">
+                        <select name="repeatSelect" id="repeatSelect" ng-model="townOptions.townParam" class="form-control">
+                          <option class="form-control" placeholder="Business Town" ng-repeat="option in townOptions.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                      </form>
+                  </td>
+                  <td><button class="btn btn-info" ng-click="getBusinessesByTown(townOptions.townParam)">Call Web Service</button></td>
               </tr>
             </table>
         </div>
         
         <div class="col-md-6 container">
             <table class="table table-condensed">
+<!--
              <tr>
                   <td><b>Retrieve all business records for a given county: </b></td>
                   <td><input ng-model="countyParam" class="form-control" placeholder="County"/></td>
@@ -96,6 +104,30 @@
                   <td><b>Retrieve all business records for a given region: </b></td>
                   <td><input ng-model="regionParam" class="form-control" placeholder="Region"/></td>
                   <td><button class="btn btn-info" ng-click="getBusinessesByRegion(regionParam)">Call Web Service</button></td>
+              </tr>
+-->
+              
+              <tr>
+                  <td><b>Retrieve all business records for a given county: </b></td>
+                  <td>
+                      <form name="form2" class="form-group">
+                        <select name="repeatSelect" id="repeatSelect" ng-model="countyOptions.countyParam" class="form-control">
+                          <option class="form-control" placeholder="Business County" ng-repeat="option in countyOptions.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                      </form>
+                  </td>
+                  <td><button class="btn btn-info" ng-click="getBusinessesByCounty(countyOptions.countyParam)">Call Web Service</button></td>
+              </tr>
+              <tr>
+                  <td><b>Retrieve all business records for a given region: </b></td>
+                  <td>
+                      <form name="form3" class="form-group">
+                        <select name="repeatSelect" id="repeatSelect" ng-model="regionOptions.regionParam" class="form-control">
+                          <option class="form-control" placeholder="Business Region" ng-repeat="option in regionOptions.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                        </select>
+                      </form>
+                  </td>
+                  <td><button class="btn btn-info" ng-click="getBusinessesByRegion(regionOptions.regionParam)">Call Web Service</button></td>
               </tr>
             </table>
         </div>

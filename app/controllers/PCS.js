@@ -36,4 +36,30 @@ app.controller('pcsCtrl', function($scope, $http) {
 
     };
     
+    
+     $scope.townOptions = {
+    repeatSelect: null,
+    availableOptions: [
+      {id: 'Balbriggan', name: 'Balbriggan'},
+      {id: 'Skerries', name: 'Skerries'}
+    ],
+   }
+    
+   $scope.countyOptions = {
+    repeatSelect: null,
+    availableOptions: [
+      {id: 'Dublin', name: 'Dublin'}
+    ],
+   }
+   
+   $scope.regionOptions = {
+    repeatSelect: null,
+    availableOptions: [
+      {id: 'Leinster', name: 'Leinster'},
+      {id: 'Munster', name: 'Munster'},
+      {id: 'Connact', name: 'Connact'},
+      {id: 'Ulster', name: 'Ulster'}
+    ],
+   }
+    
 });
