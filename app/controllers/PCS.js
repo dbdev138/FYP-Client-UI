@@ -2,7 +2,7 @@ app.controller('pcsCtrl', function($scope, $http) {
     
     $scope.getBusinessesByAll = function(townParam){
         //http://localhost:8083/api/processControllers/processA/locationType/town/locationValue/+townParam
-         $http.get("http://localhost:8083/api/processControllers/processA/locationType/all/locationValue/All")
+         $http.get("http://localhost:8083/api/processControllers/processA/locationType/all/locationValue/All/withStats")
                       .then(function (response) {
                         $scope.obj = response.data;
          });
@@ -11,7 +11,7 @@ app.controller('pcsCtrl', function($scope, $http) {
     
     $scope.getBusinessesByTown = function(townParam){
         //http://localhost:8083/api/processControllers/processA/locationType/town/locationValue/+townParam
-         $http.get("http://localhost:8083/api/processControllers/processA/locationType/town/locationValue/"+townParam)
+         $http.get("http://localhost:8083/api/processControllers/processA/locationType/town/locationValue/"+townParam+"/withStats")
                       .then(function (response) {
                         $scope.obj = response.data;
          });
@@ -20,7 +20,7 @@ app.controller('pcsCtrl', function($scope, $http) {
     
      $scope.getBusinessesByCounty = function(countyParam){
         //http://localhost:8083/api/processControllers/processA/locationType/town/locationValue/+townParam
-         $http.get("http://localhost:8083/api/processControllers/processA/locationType/county/locationValue/"+countyParam)
+         $http.get("http://localhost:8083/api/processControllers/processA/locationType/county/locationValue/"+countyParam+"/withStats")
                       .then(function (response) {
                         $scope.obj = response.data;
          });
@@ -29,7 +29,7 @@ app.controller('pcsCtrl', function($scope, $http) {
     
      $scope.getBusinessesByRegion = function(regionParam){
         //http://localhost:8083/api/processControllers/processA/locationType/town/locationValue/+townParam
-         $http.get("http://localhost:8083/api/processControllers/processA/locationType/region/locationValue/"+regionParam)
+         $http.get("http://localhost:8083/api/processControllers/processA/locationType/region/locationValue/"+regionParam+"/withStats")
                       .then(function (response) {
                         $scope.obj = response.data;
          });
