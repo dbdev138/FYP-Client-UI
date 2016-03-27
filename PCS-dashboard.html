@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head lang="en">
-    <title>Geo Tagging Service Dashboard</title>  
+    <title>Process Controller Service Dashboard</title>  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,10 +44,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#HME">Process Controller Dashboard</a></li>
+                    <li><a href="service-gateway.html">Service Gateway</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="service-gateway.html">Service Gateway</a></li>
+                    <li><a href="PCS-dashboard.html">Process Controller Dashboard</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -55,21 +55,13 @@
     <!-- Navbar End -->
     
     
-<!--
-    <div class="row drop_100">
-        <div class="col-md-12 container">
-            <table class="table table-condensed">
-              <tr>
-                  <td><b>Retrieve the Latitude and Longitude for the address: </b></td>
-                  <td><input ng-model="addressParam" class="form-control" placeholder="Address"/></td>
-                  <td><button class="btn btn-info" ng-click="getGeoTag(addressParam)">Call Web Service</button></td>
-              </tr>
-            </table>
-        </div>
-    </div>
--->
-   
    <div class="row drop_100">
+       <div class="alert alert-info" role="alert">
+           Request status: {{loadStatus}}
+       </div>
+   </div>
+   
+   <div class="row">
         <div class="col-md-6 container">
             <table class="table table-condensed">
               <tr>
@@ -87,25 +79,13 @@
                         </select>
                       </form>
                   </td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByTown(townOptions.townParam)">Call Web Service</button></td>
+                  <td><button class="btn btn-info" id="townSearch" ng-click="getBusinessesByTown(townOptions.townParam)">Call Web Service</button></td>
               </tr>
             </table>
         </div>
         
         <div class="col-md-6 container">
             <table class="table table-condensed">
-<!--
-             <tr>
-                  <td><b>Retrieve all business records for a given county: </b></td>
-                  <td><input ng-model="countyParam" class="form-control" placeholder="County"/></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByCounty(countyParam)">Call Web Service</button></td>
-              </tr>
-              <tr>
-                  <td><b>Retrieve all business records for a given region: </b></td>
-                  <td><input ng-model="regionParam" class="form-control" placeholder="Region"/></td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByRegion(regionParam)">Call Web Service</button></td>
-              </tr>
--->
               
               <tr>
                   <td><b>Retrieve all business records for a given county: </b></td>
@@ -116,7 +96,7 @@
                         </select>
                       </form>
                   </td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByCounty(countyOptions.countyParam)">Call Web Service</button></td>
+                  <td><button class="btn btn-info" id="countySearch" ng-click="getBusinessesByCounty(countyOptions.countyParam)">Call Web Service</button></td>
               </tr>
               <tr>
                   <td><b>Retrieve all business records for a given region: </b></td>
@@ -127,7 +107,7 @@
                         </select>
                       </form>
                   </td>
-                  <td><button class="btn btn-info" ng-click="getBusinessesByRegion(regionOptions.regionParam)">Call Web Service</button></td>
+                  <td><button class="btn btn-info" id="regionSearch" ng-click="getBusinessesByRegion(regionOptions.regionParam)">Call Web Service</button></td>
               </tr>
             </table>
         </div>
@@ -149,7 +129,7 @@
         </div>
     </div>
     
-    <div class="row">
+    <div class="row lift_100">
         <div class="col-md-12">
             <div class="panel panel-info">
                <div class="panel panel-heading"></div>
@@ -177,6 +157,12 @@
             </div>
         </div>
     </div>
+    
+        <!-- Footer Start -->
+        <div class="navbar navbar-default navbar-fixed-bottom drop_100">
+            <p class="navbar-text pull-right">Developed: by David Brady</p>
+        </div>
+    <!-- Footer End -->
 
 </body>
 </html>

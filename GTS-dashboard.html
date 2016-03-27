@@ -44,30 +44,35 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#HME">Geo Tagging Service Dashboard</a></li>
+                    <li><a href="service-gateway.html">Service Gateway</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="service-gateway.html">Service Gateway</a></li>
+                    <li><a href="GTS-dashboard.html">Geo Tagging Service Dashboard</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <!-- Navbar End -->
     
-    
     <div class="row drop_100">
+       <div class="alert alert-info" role="alert">
+           Request status: {{loadStatus}}
+       </div>
+   </div>
+    
+    <div class="row">
         <div class="col-md-12 container">
             <table class="table table-condensed">
               <tr>
                   <td><b>Retrieve the Latitude and Longitude for the address: </b></td>
                   <td><input ng-model="addressParam" class="form-control" placeholder="Address"/></td>
-                  <td><button class="btn btn-info" ng-click="getGeoTag(addressParam)">Call Web Service</button></td>
+                  <td><button id="callWS" class="btn btn-info" ng-click="getGeoTag(addressParam)">Call Web Service</button></td>
               </tr>
             </table>
         </div>
     </div>
     
-    <div class="row">
+    <div class="row lift_100">
         <div class="col-md-12">
             <div class="panel panel-info">
                <div class="panel panel-heading"></div>
@@ -90,6 +95,12 @@
             </div>
         </div>
     </div>
+    
+        <!-- Footer Start -->
+        <div class="navbar navbar-default navbar-fixed-bottom drop_100">
+            <p class="navbar-text pull-right">Developed: by David Brady</p>
+        </div>
+    <!-- Footer End -->
 
 </body>
 </html>

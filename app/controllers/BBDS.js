@@ -1,11 +1,12 @@
 app.controller('bbdsCtrl', function($scope, $http) {
     
-
+    $scope.loadStatus = "";
     
     
     $scope.visibility_status = false;
     
     $scope.getBusinessList = function(){
+        $scope.loadStatus = "Retrieving Data...";
         
             //SampleJSON
          //https://api.myjson.com/bins/2wjgv
@@ -17,12 +18,14 @@ app.controller('bbdsCtrl', function($scope, $http) {
                         $scope.count = response.length;
                         $scope.status_image = "http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png"
                         $scope.visibility_status = true;
+                        $scope.loadStatus = "Data Retrieved";
          });
 
     };
     
     
      $scope.getBusinessListByTown = function(townParam){
+         $scope.loadStatus = "Retrieving Data...";
         //http://localhost:8081/baseBusinesses/all/details
          $http.get("http://localhost:8081/baseBusinesses/all/details/towns/"+townParam)
                       .then(function (response) {
@@ -30,11 +33,13 @@ app.controller('bbdsCtrl', function($scope, $http) {
                         $scope.count = response.length;
                         $scope.status_image = "http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png"
                         $scope.visibility_status = true;
+                        $scope.loadStatus = "Data Retrieved";
          });
 
     };
     
     $scope.getBusinessById = function(idParam){
+        $scope.loadStatus = "Retrieving Data...";
         //http://localhost:8081/baseBusinesses/all/details
          $http.get("http://localhost:8081/baseBusinesses/"+idParam+"/details/")
                       .then(function (response) {
@@ -42,6 +47,7 @@ app.controller('bbdsCtrl', function($scope, $http) {
                         $scope.count = response.length;
                         $scope.status_image = "http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png"
                         $scope.visibility_status = true;
+                        $scope.loadStatus = "Data Retrieved";
          });
 
     };
@@ -54,11 +60,13 @@ app.controller('bbdsCtrl', function($scope, $http) {
                         $scope.count = response.length;
                         $scope.status_image = "http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png"
                         $scope.visibility_status = true;
+                        $scope.loadStatus = "Data Retrieved";
          });
 
     };
     
     $scope.getBusinessByRegion = function(regionParam){
+        $scope.loadStatus = "Retrieving Data...";
         //http://localhost:8081/baseBusinesses/all/details
          $http.get("http://localhost:8081/baseBusinesses/all/details/regions/"+regionParam)
                       .then(function (response) {
@@ -66,6 +74,7 @@ app.controller('bbdsCtrl', function($scope, $http) {
                         $scope.count = response.length;
                         $scope.status_image = "http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png"
                         $scope.visibility_status = true;
+                        $scope.loadStatus = "Data Retrieved";
          });
 
     };
